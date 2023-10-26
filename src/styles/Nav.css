@@ -1,0 +1,15 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.playground-btn {
+    color: #BCCCDC;
+}
