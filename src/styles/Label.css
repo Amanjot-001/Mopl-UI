@@ -1,7 +1,8 @@
 .label {
     display: flex;
     padding: 1rem;
-    color: #fff;
+    /* color: #fff; */
+    color: #000;
     align-items: center;
     gap: 0.3rem;
     opacity: 0.9;
