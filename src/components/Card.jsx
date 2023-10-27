@@ -1,3 +1,4 @@
+import '../styles/Card.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFaceSurprise, faFaceSmileWink, faFaceGrinHearts } from '@fortawesome/free-regular-svg-icons';
 
