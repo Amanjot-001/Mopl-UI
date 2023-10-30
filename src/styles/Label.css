@@ -2,10 +2,11 @@
     display: flex;
     padding: 1rem;
     /* color: #fff; */
-    color: #000;
+    /* color: #000; */
     align-items: center;
     justify-content: space-between;
-    opacity: 0.9;
+    opacity: 0.8;
+    color: #BCCCDC;
 }
 
 .left {
@@ -27,13 +28,10 @@
     align-items: center;
     gap: 1rem;
     font-size: 0.9rem;
-    color: rgb(0, 0, 0, 0.7);
+    /* color: rgb(0, 0, 0, 0.7); */
+    color: #BCCCDC;
 }
 
 .right div {
     cursor: pointer;
-
-    &:hover {
-        color: #000;
-    }
 }

@@ -17,6 +17,7 @@ function App() {
       <Result />
       <Label heading='Features' />
       <Features />
+      <Label heading='Documentation' />
     </div>
   )
 }

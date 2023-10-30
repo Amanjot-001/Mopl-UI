@@ -16,15 +16,21 @@
 }
 
 .logo {
-    color: #000;
+    /* color: #000; */
+    color: #fff;
     font-size: 1.5rem;
     font-family: 'Aphro', sans-serif;
     cursor: pointer;
 }
 
-.playground-btn {
+.playground-btn, .docs-btn {
     /* color: #BCCCDC; */
-    color: #102A43;
+    /* color: #102A43; */
+    color: rgb(255, 255, 255, 0.5);
     cursor: pointer;
     font-family: 'Akkurat', sans-serif;
+
+    &:hover {
+        color: #fff !important;
+    }
 }
