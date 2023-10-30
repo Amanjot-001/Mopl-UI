@@ -1,8 +1,9 @@
 import '../styles/Playground.css'
 import Editor from 'react-simple-code-editor'
 import { useState } from 'react';
-import '../../prism.css';
-import Prism, { highlightAll } from 'prismjs';
+import '../styles/prism.css';
+// import '../utils/prism'
+import Prism from 'prismjs';
 import '../utils/mopl'
 
 export default function Playground() {

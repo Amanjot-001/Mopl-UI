@@ -4,8 +4,13 @@
     /* color: #fff; */
     color: #000;
     align-items: center;
-    gap: 0.3rem;
+    justify-content: space-between;
     opacity: 0.9;
+}
+
+.left {
+    display: flex;
+    gap: 0.3rem;
 }
 
 .arrow {
@@ -14,4 +19,21 @@
 
 .text {
     font-size: 0.8rem;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: rgb(0, 0, 0, 0.7);
+}
+
+.right div {
+    cursor: pointer;
+
+    &:hover {
+        color: #000;
+    }
 }

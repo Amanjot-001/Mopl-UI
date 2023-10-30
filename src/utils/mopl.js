@@ -27,10 +27,10 @@ Prism.languages['mopl'] = {
     'equality-operator': /[=!]=/,
 
     // Assignment Operators
-    'assignment-operator': /=|[*\/+\-]=/,
+    'assignment-operator': /\/=|\*=|\+=|-=/,
 
     // Multiplicative Operators
-    'multiplicative-operator': /[*\/]/,
+    'multiplicative-operator': /[*/]/,
 
     // Additive Operators
     'additive-operator': /[+\-]/,
