@@ -1,61 +1,37 @@
 import '../styles/Playground.css'
-import Editor from 'react-simple-code-editor'
-import { useState } from 'react';
-import { highlight, languages, Prism } from 'prismjs';
-
-Prism.languages.customLanguage = {
-    'whitespace': /^\s+/,
-    'comment': [/^\/\/.*/, /^\/\*[\s\S]*?\*\//],
-    'semicolon': /^;/,
-    'curly-braces': [/{/, /}/],
-    'parentheses': [/\(/, /\)/],
-    'dot': /^\./,
-    'square-brackets': [/\[/, /\]/],
-    'comma': /^,/,
-    'keywords': /\b(let|if|else|true|false|null|while|do|for|def|return|class|extends|super|new|this)\b/,
-    'number': /^\d+/,
-    'string': /^"[^"]*"|'[^']*'/,
-    'identifier': /^\w+/,
-    'equality-operator': /^[=!]=/,
-    'simple-assign': /=/,
-    'complex-assign': /[*\/+\-]=/,
-    'multiplicative-operator': /[*\/]/,
-    'additive-operator': /[+\-]/,
-    'relational-operator': /^[><]=?/,
-    'logical-and': /&&/,
-    'logical-or': /\|\|/,
-    'logical-not': /!/,
-};
-  
-const language = Prism.languages.customLanguage;
+// import Editor from 'react-simple-code-editor'
+import { useState} from 'react';
+import 'prismjs/themes/prism.css';
+import Prism from 'prismjs';
+import '../utils/mopl'
 
 export default function Playground() {
     const [code, setCode] = useState('');
+    const [highlightedCode, setHighlightedCode] = useState('');
 
-    const highlightCode = (code) => {
-        const highlightedCode = highlight(code, language);
-        return highlightedCode;
+    const handleCodeChange = (event) => {
+        const newCode = event.target.value;
+        setCode(newCode);
+
+        const highlighted = Prism.highlight(newCode, Prism.languages.mopl, 'mopl');
+        setHighlightedCode(highlighted);
     };
 
+
     return (
-        // <div className="playground">
-        //     <textarea name="" id="" cols="30" rows="10">
-        //     </textarea>
-        // </div>
         <div className="playground">
-            <Editor
+            <textarea
+                cols="30"
+                rows="10"
                 value={code}
-                onValueChange={code => setCode(code)}
-                highlight={code => highlightCode(code)}
-                padding={'1rem'}
-                style={{
-                    backgroundColor: '#fff',
-                    fontFamily: 'monospace',
-                    fontSize: 14,
-                    flexGrow: 1,
-                    // borderRadius: '1rem'
-                }}
-            />
+                onChange={handleCodeChange}
+                className="language-mopl"
+            ></textarea>
+            <div className="highlighted-code">
+                <pre>
+                    <code dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+                </pre>
+            </div>
         </div>
     )
 }
