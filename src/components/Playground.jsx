@@ -5,29 +5,35 @@ import '../styles/prism.css';
 // import '../utils/prism'
 import Prism from 'prismjs';
 import '../utils/mopl'
+import { highlight, languages } from 'prismjs'
 
 export default function Playground() {
     const [code, setCode] = useState('');
-    const highlightCode = (code) => {
-        return Prism.highlight(code, Prism.languages.mopl, 'mopl');
-    };
+    // const highlightCode = (code) => {
+    //     return Prism.highlight(code, Prism.languages.mopl, 'mopl');
+    // };
+
+    const hightlightWithLineNumbers = (input, language) =>
+        highlight(input, language)
+            .split("\n")
+            .map((line, i) => `<span class='editorLineNumber'>${i + 1}</span>${line}`)
+            .join("\n");
 
     return (
         <div className="playground">
             <Editor
+                textareaId="codeArea"
+                className='editor'
                 value={code}
                 onValueChange={code => setCode(code)}
-                highlight={code => highlightCode(code)}
+                highlight={code => hightlightWithLineNumbers(code, languages.mopl)}
                 padding={'1rem'}
                 style={{
-                    width: '100%',
-                    height: '100%',
-                    fontFamily: 'monospace',
+                    fontFamily: '"Fira code", "Fira Mono", monospace',
                     fontSize: 14,
                     backgroundColor: '#fff',
-                    border: '1px solid #ccc',
                     borderRadius: 4,
-                    overflow: 'auto'
+                    outline: 0,
                 }}
             />
         </div>

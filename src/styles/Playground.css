@@ -1,9 +1,11 @@
 .playground {
     display: flex;
     padding: 1rem 5rem;
-    height: 15rem;
+    min-height: 15rem;
+    /* height: 15rem; */
 }
 
+/* 
 textarea {
     display: flex;
     flex-grow: 1;
@@ -11,4 +13,28 @@ textarea {
     resize: none;
     border: none;
     padding: 1rem;
+} */
+
+.editor {
+    counter-reset: line;
+    border: none;
+    flex-grow: 1;
+}
+
+.editor #codeArea {
+    outline: none;
+    padding-left: 60px !important;
+}
+
+.editor pre {
+    padding-left: 60px !important;
+}
+
+.editor .editorLineNumber {
+    position: absolute;
+    left: 0px;
+    color: #cccccc;
+    text-align: right;
+    width: 40px;
+    font-weight: 100;
 }
