@@ -9,7 +9,7 @@ import Result from './components/Result'
 function App() {
   return (
     <div className='container'> 
-      <Nav />
+      {/* <Nav /> */}
       <Header />
       <Label heading='Playground' rightPart={true} btns={['Run', 'Clear']} />
       <Playground />

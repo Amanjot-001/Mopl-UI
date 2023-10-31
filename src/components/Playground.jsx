@@ -1,34 +1,40 @@
 import '../styles/Playground.css'
-import Editor from 'react-simple-code-editor'
 import { useState } from 'react';
 import '../styles/prism.css';
 import '../utils/mopl'
-import { highlight, languages } from 'prismjs'
+
+import AceEditor from "react-ace";
+
+// import "ace-builds/src-noconflict/mode-javascript";
+import "../utils/mopl-mode";
+import '../utils/mopl-twilight';
+import "ace-builds/src-noconflict/theme-twilight";
+import "ace-builds/src-noconflict/ext-language_tools";
+
+function onChange(newValue) {
+    console.log("change", newValue);
+}
+
 
 export default function Playground() {
     const [code, setCode] = useState('');
 
-    const hightlightWithLineNumbers = (input, language) =>
-        highlight(input, language)
-            .split("\n")
-            .map((line, i) => `<span class='editorLineNumber'>${i + 1}</span>${line}`)
-            .join("\n");
-
     return (
         <div className="playground">
-            <Editor
-                textareaId="codeArea"
+            <AceEditor
                 className='editor'
-                value={code}
-                onValueChange={code => setCode(code)}
-                highlight={code => hightlightWithLineNumbers(code, languages.mopl)}
-                padding={'1rem'}
-                style={{
-                    fontFamily: '"Fira code", "Fira Mono", monospace',
-                    fontSize: 14,
-                    // backgroundColor: '#fff',
-                    borderRadius: 4,
-                    outline: 0,
+                mode="mopl"
+                theme="mopl-twilight"
+                onChange={onChange}
+                editorProps={{ $blockScrolling: true}}
+                style={{ 
+                    height: '100%',
+                    fontSize: '1rem'
+                }}
+                setOptions={{
+                    enableBasicAutocompletion: true,
+                    enableLiveAutocompletion: true,
+                    enableSnippets: true
                 }}
             />
         </div>
