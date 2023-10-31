@@ -2,16 +2,11 @@ import '../styles/Playground.css'
 import Editor from 'react-simple-code-editor'
 import { useState } from 'react';
 import '../styles/prism.css';
-// import '../utils/prism'
-import Prism from 'prismjs';
 import '../utils/mopl'
 import { highlight, languages } from 'prismjs'
 
 export default function Playground() {
     const [code, setCode] = useState('');
-    // const highlightCode = (code) => {
-    //     return Prism.highlight(code, Prism.languages.mopl, 'mopl');
-    // };
 
     const hightlightWithLineNumbers = (input, language) =>
         highlight(input, language)
@@ -31,7 +26,7 @@ export default function Playground() {
                 style={{
                     fontFamily: '"Fira code", "Fira Mono", monospace',
                     fontSize: 14,
-                    backgroundColor: '#fff',
+                    // backgroundColor: '#fff',
                     borderRadius: 4,
                     outline: 0,
                 }}

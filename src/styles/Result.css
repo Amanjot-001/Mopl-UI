@@ -12,4 +12,9 @@ textarea {
     resize: none;
     width: 100%;
     height: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #282c34;
+    background: linear-gradient(90deg, #20232a 0%, #282c34 51%, #20232a 100%);
 }

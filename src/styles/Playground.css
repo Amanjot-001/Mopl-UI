@@ -19,6 +19,9 @@ textarea {
     counter-reset: line;
     border: none;
     flex-grow: 1;
+    background-color: #282c34;
+    background: linear-gradient(90deg, #20232a 0%, #282c34 51%, #20232a 100%);
+    color: white;
 }
 
 .editor #codeArea {
